@@ -1,0 +1,122 @@
+<%- include('parts/head')%> <%- include('parts/navbar')%>
+
+<div class="home pt-5 mt-5 mb-5">
+  <div class="container">
+    <% if(type=="doctor") {%>
+    <h1></h1>
+
+    <% } else if(type=="student") {%>
+    <h1></h1>
+    <img width="70%" style="display: block; margin: 50px auto" />
+
+    <% }if(type=="admin"){ %>
+    <h1></h1>
+
+    <% } %>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "bottom-start",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: "success",
+          title: "أهلاً <%= name %> ",
+        });
+      });
+    </script>
+
+    <% if(successDownloadAbsenceFileByAdmin){ %>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "bottom-start",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: "success",
+          title: "<%= successDownloadAbsenceFileByAdmin %> ",
+        });
+      });
+    </script>
+    <% } %> <% if(failedDownloadAbsenceFileByAdmin){ %>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "bottom-start",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: "error",
+          title: "<%= failedDownloadAbsenceFileByAdmin %> ",
+        });
+      });
+    </script>
+    <% } %> <% if(validationErr){ %>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "bottom-start",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: "error",
+          title: "<%= validationErr.msg %> ",
+        });
+      });
+    </script>
+    <% } %> <% if(uploadImageStatus){ %>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "bottom-start",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: "success",
+          title: "<%= uploadImageStatus %> ",
+        });
+      });
+    </script>
+    <% } %>
+  </div>
+</div>
+
+<%- include('parts/footer')%>
